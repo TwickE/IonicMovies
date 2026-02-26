@@ -5,6 +5,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-searchbar [debounce]="1000" (ionInput)="handleSearch($event)" placeholder="Search for a movie"></ion-searchbar>
   @defer(when !isLoading) {
   <ion-list>
     @for(item of movies; track item.id) {

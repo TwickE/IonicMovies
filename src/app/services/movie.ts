@@ -13,11 +13,15 @@ const API_KEY = environment.apiKey;
 export class Movie {
   private http = inject(HttpClient);
 
-  getTopRatedMovies(page = 1): Observable<ApiResult> {
+  getTopRatedMovies(page: number = 1): Observable<ApiResult> {
     return this.http.get<ApiResult>(`${BASE_URL}/movie/popular?page=${page}&api_key=${API_KEY}`);
   }
 
   getMovieDetails(id: string): Observable<MovieResult> {
     return this.http.get<MovieResult>(`${BASE_URL}/movie/${id}?api_key=${API_KEY}`);
+  }
+
+  searchMovie(query: string, page: number = 1): Observable<ApiResult> {
+    return this.http.get<ApiResult>(`${BASE_URL}/search/movie?query=${query}&include_adult=false&language=en-US&page=${page}&api_key=${API_KEY}`);
   }
 }

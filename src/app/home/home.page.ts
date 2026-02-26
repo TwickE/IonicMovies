@@ -21,6 +21,9 @@ export class HomePage {
   public imageBaseUrl = "https://image.tmdb.org/t/p";
   public dummyArray = ["1", "2", "3", "4", "5"];
 
+  public query: string = "";
+  public isSearching: boolean = false;
+
   constructor() {
     this.loadMovies();
   }
@@ -32,7 +35,11 @@ export class HomePage {
       this.isLoading = true;
     }
 
-    this.movieService.getTopRatedMovies(this.currentPage).pipe(
+    const request = this.isSearching && this.query
+      ? this.movieService.searchMovie(this.query, this.currentPage)
+      : this.movieService.getTopRatedMovies(this.currentPage);
+
+    request.pipe(
       finalize(() => {
         this.isLoading = false;
         if (event) {
@@ -41,7 +48,6 @@ export class HomePage {
       }),
       catchError((error: any) => {
         console.log(error);
-
         this.error = error.error.status_message;
         return [];
       })
@@ -56,7 +62,28 @@ export class HomePage {
   }
 
   loadMore(event: InfiniteScrollCustomEvent) {
-      this.currentPage++;
-      this.loadMovies(event);
+    this.currentPage++;
+    this.loadMovies(event);
+  }
+
+  handleSearch(event: Event) {
+    const target = event.target as HTMLIonSearchbarElement;
+    this.query = target.value?.toLowerCase() || '';
+
+    if (this.query) {
+      this.isSearching = true;
+      this.currentPage = 1;
+      this.movies.length = 0;
+      this.movieService.searchMovie(this.query).subscribe({
+        next: (res) => {
+          this.movies.push(...res.results);
+        }
+      });
+    } else {
+      this.isSearching = false;
+      this.currentPage = 1;
+      this.movies.length = 0;
+      this.loadMovies();
+    }
   }
 }
