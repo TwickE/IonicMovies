@@ -1,16 +1,18 @@
 import { Component, inject } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent, InfiniteScrollCustomEvent, IonList, IonItem, IonAvatar, IonSkeletonText, IonAlert, IonLabel, IonBadge, IonInfiniteScroll, IonInfiniteScrollContent, IonSearchbar } from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonTitle, IonContent, InfiniteScrollCustomEvent, IonList, IonItem, IonAvatar, IonSkeletonText, IonAlert, IonLabel, IonBadge, IonInfiniteScroll, IonInfiniteScrollContent, IonSearchbar, IonButtons, IonButton, IonIcon } from '@ionic/angular/standalone';
 import { Movie } from '../services/movie';
 import { catchError, finalize } from 'rxjs';
 import { MovieResult } from '../services/interfaces';
 import { DatePipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { settings } from 'ionicons/icons';
+import { addIcons } from 'ionicons';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [IonSearchbar, IonInfiniteScrollContent, IonInfiniteScroll, IonBadge, IonLabel, IonAlert, IonSkeletonText, IonAvatar, IonItem, IonList, IonHeader, IonToolbar, IonTitle, IonContent, DatePipe, RouterModule],
+  imports: [IonIcon, IonButton, IonButtons, IonSearchbar, IonInfiniteScrollContent, IonInfiniteScroll, IonBadge, IonLabel, IonAlert, IonSkeletonText, IonAvatar, IonItem, IonList, IonHeader, IonToolbar, IonTitle, IonContent, DatePipe, RouterModule],
 })
 export class HomePage {
   private movieService = inject(Movie);
@@ -26,6 +28,7 @@ export class HomePage {
 
   constructor() {
     this.loadMovies();
+    addIcons({settings})
   }
 
   loadMovies(event?: InfiniteScrollCustomEvent) {

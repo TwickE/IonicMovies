@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonText, IonCardContent, IonLabel, IonItem, IonIcon } from '@ionic/angular/standalone';
 import { Movie } from '../services/movie';
 import { MovieResult } from '../services/interfaces';
-import { cashOutline, calendarOutline } from 'ionicons/icons';
+import { cash, calendar } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
 
 @Component({
@@ -27,7 +27,7 @@ export class DetailsPage implements OnInit {
   }
 
   constructor() {
-    addIcons({cashOutline, calendarOutline})
+    addIcons({cash, calendar})
   }
 
   ngOnInit() {

@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list-header>Appearance</ion-list-header>
+  <ion-list [inset]="true">
+    <ion-item>
+      <ion-toggle [(ngModel)]="paletteToggle" (ionChange)="toggleChange($event)" [disabled]="deviceThemeToggle" justify="space-between">
+        Dark Mode
+      </ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-toggle [(ngModel)]="deviceThemeToggle" (ionChange)="toggleDeviceTheme($event)" justify="space-between">
+        Device Theme
+      </ion-toggle>
+    </ion-item>
+  </ion-list>
+</ion-content>
