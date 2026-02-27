@@ -6,13 +6,14 @@ import { Movie } from '../services/movie';
 import { MovieResult } from '../services/interfaces';
 import { cash, calendar } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
+import { TranslatePipe } from "@ngx-translate/core";
 
 @Component({
   selector: 'app-details',
   templateUrl: './details.page.html',
   styleUrls: ['./details.page.scss'],
   standalone: true,
-  imports: [IonIcon, IonItem, IonLabel, IonCardContent, IonText, IonCardSubtitle, IonCardTitle, IonCardHeader, IonCard, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonBackButton]
+  imports: [IonIcon, IonItem, IonLabel, IonCardContent, IonText, IonCardSubtitle, IonCardTitle, IonCardHeader, IonCard, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonBackButton, TranslatePipe]
 })
 export class DetailsPage implements OnInit {
   private movieService = inject(Movie);

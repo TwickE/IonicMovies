@@ -1,35 +1,35 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/"></ion-back-button>
+      <ion-back-button defaultHref="/" text="{{'backButton' | translate}}"></ion-back-button>
     </ion-buttons>
-    <ion-title>Settings</ion-title>
+    <ion-title>{{'settings.title' | translate}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-list-header>Appearance</ion-list-header>
+  <ion-list-header>{{'settings.theme' | translate}}</ion-list-header>
   <ion-list [inset]="true">
     <ion-item>
       <ion-toggle [(ngModel)]="paletteToggle" (ionChange)="toggleChange($event)" [disabled]="deviceThemeToggle" justify="space-between">
-        Dark Mode
+        {{'settings.darkMode' | translate}}
       </ion-toggle>
     </ion-item>
     <ion-item>
       <ion-toggle [(ngModel)]="deviceThemeToggle" (ionChange)="toggleDeviceTheme($event)" justify="space-between">
-        Device Theme
+        {{'settings.deviceTheme' | translate}}
       </ion-toggle>
     </ion-item>
   </ion-list>
   
-  <ion-list-header>{{'test' | translate}}</ion-list-header>
+  <ion-list-header>{{'settings.language' | translate}}</ion-list-header>
   <ion-list [inset]="true">
     <ion-radio-group [value]="currentLanguage" (ionChange)="changeLanguage($event)">
       <ion-item>
-        <ion-radio value="en">English</ion-radio>
+        <ion-radio value="en">{{'settings.english' | translate}}</ion-radio>
       </ion-item>
       <ion-item>
-        <ion-radio value="pt">Português</ion-radio>
+        <ion-radio value="pt">{{'settings.portuguese' | translate}}</ion-radio>
       </ion-item>
     </ion-radio-group>
   </ion-list>

@@ -1,3 +1,18 @@
 {
-  "test": "Isto é um teste!"
+  "home": {
+    "title": "Filmes em Alta",
+    "search": "Procurar por um filme",
+    "noMovies": "Nenhum filme encontrado",
+    "loading": "A carregar mais filmes..."
+  },
+  "settings": {
+    "title": "Definições",
+    "theme": "Tema",
+    "darkMode": "Modo Escuro",
+    "deviceTheme": "Tema do Dispositivo",
+    "language": "Língua",
+    "english": "Inglês",
+    "portuguese": "Português"
+  },
+  "backButton": "Voltar"
 }

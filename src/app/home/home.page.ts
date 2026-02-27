@@ -7,12 +7,13 @@ import { DatePipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { settings } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
+import { TranslatePipe } from "@ngx-translate/core";
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [IonIcon, IonButton, IonButtons, IonSearchbar, IonInfiniteScrollContent, IonInfiniteScroll, IonBadge, IonLabel, IonAlert, IonSkeletonText, IonAvatar, IonItem, IonList, IonHeader, IonToolbar, IonTitle, IonContent, DatePipe, RouterModule],
+  imports: [IonIcon, IonButton, IonButtons, IonSearchbar, IonInfiniteScrollContent, IonInfiniteScroll, IonBadge, IonLabel, IonAlert, IonSkeletonText, IonAvatar, IonItem, IonList, IonHeader, IonToolbar, IonTitle, IonContent, DatePipe, RouterModule, TranslatePipe],
 })
 export class HomePage {
   private movieService = inject(Movie);
@@ -27,8 +28,14 @@ export class HomePage {
   public isSearching: boolean = false;
 
   constructor() {
-    this.loadMovies();
     addIcons({settings})
+  }
+
+  ionViewWillEnter(): void {
+    this.currentPage = 1;
+    this.movies.length = 0;
+    this.isSearching = false;
+    this.loadMovies();
   }
 
   loadMovies(event?: InfiniteScrollCustomEvent) {

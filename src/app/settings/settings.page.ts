@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton, IonListHeader, IonList, IonItem, IonToggle, IonRadioGroup, IonRadio } from '@ionic/angular/standalone';
 import { Theme } from '../services/theme';
 import { take } from 'rxjs';
-import { TranslatePipe, TranslateDirective } from "@ngx-translate/core";
+import { TranslatePipe } from "@ngx-translate/core";
 import { Language } from '../services/language';
 
 @Component({
@@ -12,7 +12,7 @@ import { Language } from '../services/language';
   templateUrl: './settings.page.html',
   styleUrls: ['./settings.page.scss'],
   standalone: true,
-  imports: [IonRadio, IonRadioGroup, IonToggle, IonItem, IonList, IonListHeader, IonBackButton, IonButtons, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, TranslatePipe, TranslateDirective]
+  imports: [IonRadio, IonRadioGroup, IonToggle, IonItem, IonList, IonListHeader, IonBackButton, IonButtons, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, TranslatePipe]
 })
 export class SettingsPage implements OnInit {
   paletteToggle = false;

@@ -1,3 +1,18 @@
 {
-  "test": "This is a test!"
+  "home": {
+    "title": "Trending Movies",
+    "search": "Search for a movie",
+    "noMovies": "No movies found",
+    "loading": "Loading more movies..."
+  },
+  "settings": {
+    "title": "Settings",
+    "theme": "Theme",
+    "darkMode": "Dark Mode",
+    "deviceTheme": "Device Theme",
+    "language": "Language",
+    "english": "English",
+    "portuguese": "Portuguese"
+  },
+  "backButton": "Back"
 }

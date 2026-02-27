@@ -5,12 +5,12 @@
         <ion-icon slot="icon-only" name="settings"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Trending Movies</ion-title>
+    <ion-title>{{'home.title' | translate}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-searchbar [debounce]="1000" (ionInput)="handleSearch($event)" placeholder="Search for a movie"></ion-searchbar>
+  <ion-searchbar [debounce]="1000" (ionInput)="handleSearch($event)" placeholder="{{'home.search' | translate}}"></ion-searchbar>
   @defer(when !isLoading) {
   <ion-list>
     @for(item of movies; track item.id) {
@@ -27,7 +27,7 @@
     } @empty {
     @if(!isLoading) {
     <ion-item lines="none">
-      <ion-label class="ion-text-center">No movies found</ion-label>
+      <ion-label class="ion-text-center">{{'home.noMovies' | translate}}</ion-label>
     </ion-item>
     }
     }
@@ -35,7 +35,7 @@
 
   <ion-infinite-scroll (ionInfinite)="loadMore($event)">
     <ion-infinite-scroll-content loadingSpinner="bubbles"
-      loadingText="Loading more movies..."></ion-infinite-scroll-content>
+      loadingText="{{'home.loading' | translate}}"></ion-infinite-scroll-content>
   </ion-infinite-scroll>
   } @placeholder {
   <ion-list>
