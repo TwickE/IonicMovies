@@ -69,5 +69,9 @@ testem.log
 .DS_Store
 Thumbs.db
 
-#env Files
+# env Files
 .env
+
+# Builds
+/android
+/ios

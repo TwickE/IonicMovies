@@ -21,4 +21,16 @@
       </ion-toggle>
     </ion-item>
   </ion-list>
+  
+  <ion-list-header>{{'test' | translate}}</ion-list-header>
+  <ion-list [inset]="true">
+    <ion-radio-group [value]="currentLanguage" (ionChange)="changeLanguage($event)">
+      <ion-item>
+        <ion-radio value="en">English</ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-radio value="pt">Português</ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
 </ion-content>
